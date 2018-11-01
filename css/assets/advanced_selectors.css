@@ -43,4 +43,12 @@ ol {
   font-weight: bold;
 }
 
+input {
+  cursor: pointer;
+  outline: none;
+}
 
+select {
+  cursor: pointer;
+  outline: none;
+}
