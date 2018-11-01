@@ -52,29 +52,17 @@ end
 
 
 def sub_sum_2(arr)
-  ongoing_sum = nil
+  ongoing_sum = arr[0]
   current_best = arr[0]
 
-  arr.each do |el| #Big-O(n) because we iterate through array once
-
-    if el > current_best
-      current_best = el
-    end
-
-    if !(ongoing_sum)
-      ongoing_sum = el
-    elsif (el + ongoing_sum) > ongoing_sum
-      ongoing_sum += el
-      current_best = ongoing_sum if ongoing_sum > current_best
-    elsif ongoing_sum + el > 0
-      ongoing_sum += el
-    else
-      ongoing_sum = nil
-    end
+  arr[1..-1].each do |el| #Big-O(n) because we iterate through array once
+    ongoing_sum = 0 if ongoing_sum < 0
+    ongoing_sum += el
+    current_best = ongoing_sum if ongoing_sum > current_best
   end
 
   current_best
 end
 
 
-p sub_sum_2([-5, -1, -3])
+p sub_sum_2([2, 3, -6, 7, -6, 7])
